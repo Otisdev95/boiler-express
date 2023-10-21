@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express();
+let path = require('require');
 
 // console.log("Hello World");
 
@@ -12,12 +13,8 @@ let app = express();
 // });
 
 app.get("/", function (req, res) {
-    res.sendFile(__dirname + '/views/index.html');
+    res.sendFile(path.join(__dirname + '/views/index.html'));
 });
-
-module.export = app;
-
-
 
 
 
