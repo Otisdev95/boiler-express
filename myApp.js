@@ -8,6 +8,12 @@ app.get("/", (req, res) => {
 
 app.use("/public", express.static(__dirname + '/public/'));
 
+app.use("/", (req, res, next) => {
+    var string = req.method + " " + req.path + " - " + req.ip;
+    console.log(string);
+    next();
+});
+
 app.get("/json", (req, res) => {
     console.log(process.env.MESSAGE_STYLE, "<=message style");
     if (process.env.MESSAGE_STYLE === "uppercase") {
