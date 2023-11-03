@@ -16,7 +16,7 @@ app.get("/json", (req, res) => {
     }
 });
 
-app.use("/json", (req, res, next) => {
+app.use("/", (req, res, next) => {
     const string = `${req.method} ${req.path} - ${req.ip}`;
     console.log(string);
     next();
