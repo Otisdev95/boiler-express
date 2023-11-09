@@ -4,7 +4,7 @@ let express = require('express');
 let app = express();
 
 
-app.use(bodyParser.urlencoded({extended: false}));
+// app.use(bodyParser.urlencoded({extended: false}));
 
 app.use("/public", express.static(__dirname + '/public/'));
 
@@ -43,8 +43,8 @@ app.get("/name", (req, res) => {
     res.json({ name: `${firstname} ${lastname}` });
 });
 
-app.post("/name", (req, res) => {
-    const { first: firstname, last: lastname } = req.body;
+app.post("/name", (bodyParser.urlencoded({extended: false})), (req, res) => {
+    const { firstname, lastname } = req.body;
     res.json({ name: `${firstname} ${lastname}` });
 });
 
