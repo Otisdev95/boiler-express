@@ -44,7 +44,7 @@ app.get("/name", (req, res) => {
 });
 
 app.post("/name", (req, res) => {
-    const { firstname, lastname } = req.body;
+    const { first: firstname, last: lastname } = req.body;
     res.json({ name: `${firstname} ${lastname}` });
 });
 
