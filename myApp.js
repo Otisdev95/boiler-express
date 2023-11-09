@@ -30,6 +30,12 @@ app.get("/now", (req, res, next) => {
     res.json({time: req.time});
 });
 
+app.get("/:word/echo", (req, res, next) => {
+    const word = req.params.word;
+    res.json({echo: word});
+    next();
+});
+
 
 
 
